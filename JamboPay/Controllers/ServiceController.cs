@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using JamboPay.Helpers;
 using JamboPay.Models;
@@ -16,7 +19,7 @@ namespace JamboPay.Controllers
     public class ServiceController : Controller
     {
         private readonly IServiceRepository _serviceRepository;
-
+        
         public ServiceController(IServiceRepository serviceRepository)
         {
             _serviceRepository = serviceRepository;

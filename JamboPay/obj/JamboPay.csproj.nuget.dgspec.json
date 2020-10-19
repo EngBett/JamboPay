@@ -14,7 +14,7 @@
         "outputPath": "C:\\Users\\icodeio\\Documents\\CSharp\\JamboPay\\JamboPay\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Microsoft\\Xamarin\\NuGet"
         ],
         "configFilePaths": [
           "C:\\Users\\icodeio\\AppData\\Roaming\\NuGet\\NuGet.Config",

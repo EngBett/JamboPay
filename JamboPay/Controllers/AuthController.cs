@@ -142,7 +142,7 @@ namespace JamboPay.Controllers
                 var roles = await _userManager.GetRolesAsync(user);
                 var claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Name, ClaimTypes.Email),
+                    new Claim(ClaimTypes.Name, user.Id),
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
                 };
 

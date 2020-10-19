@@ -5882,7 +5882,7 @@
   },
   "packageFolders": {
     "C:\\Users\\icodeio\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Microsoft\\Xamarin\\NuGet": {}
   },
   "project": {
     "version": "1.0.0",
@@ -5894,7 +5894,7 @@
       "outputPath": "C:\\Users\\icodeio\\Documents\\CSharp\\JamboPay\\JamboPay\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Microsoft\\Xamarin\\NuGet"
       ],
       "configFilePaths": [
         "C:\\Users\\icodeio\\AppData\\Roaming\\NuGet\\NuGet.Config",
