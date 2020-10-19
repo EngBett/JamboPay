@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using JamboPay.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -45,6 +46,14 @@ namespace JamboPay.Controllers
                 user = new {FullName=user.FullName,Email=user.Email},
                 CommissionBalance = balance
             });
+        }
+
+        [HttpGet("my-balance")]
+        public async Task<IActionResult> GetMyBalance()
+        {
+            var claimsIdentity = User.Identity as ClaimsIdentity;
+            var userId = claimsIdentity.FindFirst(ClaimTypes.Name)?.Value;
+            return await GetCommissionBalance(userId);
         }
     }
 }
