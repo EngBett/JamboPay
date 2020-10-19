@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -28,12 +29,13 @@ namespace JamboPay.Controllers
         [HttpGet("get/{userId}")]
         public async Task<IActionResult> GetUser(string userId)
         {
-            return Ok(new {Ambassador = await _userManager.Users.Include(t=>t.Transactions).ThenInclude(s=>s.Service).Include(c=>c.Commissions).Where(i=>i.Id==userId).FirstAsync()});
+            return Ok(new {Ambassador = await _userManager.Users.Include(t=>t.Transactions).ThenInclude(s=>s.Service).Include(n=>n.Network).Include(c=>c.Commissions).Where(i=>i.Id==userId).FirstAsync()});
         }
 
         [HttpGet("balance/{userId}")]
         public async Task<IActionResult> GetCommissionBalance(string userId)
         {
+            
             var user = await _userManager.Users.Include(c=>c.Commissions).Where(i=>i.Id==userId).FirstAsync();
             var balance = 0.0;
             foreach (var commission in user.Commissions)
@@ -46,6 +48,7 @@ namespace JamboPay.Controllers
                 user = new {FullName=user.FullName,Email=user.Email},
                 CommissionBalance = balance
             });
+            
         }
 
         [HttpGet("my-balance")]
@@ -53,6 +56,7 @@ namespace JamboPay.Controllers
         {
             var claimsIdentity = User.Identity as ClaimsIdentity;
             var userId = claimsIdentity.FindFirst(ClaimTypes.Name)?.Value;
+            
             return await GetCommissionBalance(userId);
         }
     }
