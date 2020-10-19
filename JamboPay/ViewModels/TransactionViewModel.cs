@@ -8,7 +8,5 @@ namespace JamboPay.ViewModels
         public string ServiceId { get; set; }
         [Required]
         public double Cost { get; set; }
-        [Required]
-        public string ApplicationUserId { get; set; }
     }
 }
